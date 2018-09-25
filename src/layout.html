@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Layout</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
+
         .layout article div {
             min-height: 100px;
         }
     </style>
 </head>
+
 <body>
     <section class="layout float">
         <style media="screen">
@@ -23,11 +26,13 @@
                 width: 300px;
                 background-color: #ff0000;
             }
+
             .layout.float .right {
                 float: right;
                 width: 300px;
                 background-color: #0000ff;
             }
+
             .layout.float .center {
                 background-color: #00ff00;
             }
@@ -41,5 +46,36 @@
             </div>
         </article>
     </section>
+    <section class="layout absolute">
+        <style>
+            .layout.absolute .left-center-right>div {
+                position: absolute;
+            }
+
+            .layout.absolute .left {
+                left: 0;
+                width: 300px;
+                background-color: #ff0000;
+            }
+            .layout.absolute .center {
+                left: 300px;
+                right: 300px;
+                background-color: #00ff00;
+            }
+            .layout.absolute .right {
+                right: 0;
+                width: 300px;
+                background-color: #0000ff;
+            }
+        </style>
+        <article class="left-center-right">
+            <div class="left"></div>
+            <div class="center">
+                <h1>绝对定位解决方案</h1>
+            </div>
+            <div class="right"></div>
+        </article>
+    </section>
 </body>
+
 </html>
