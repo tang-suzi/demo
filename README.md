@@ -51,3 +51,34 @@
             3.创建自适应布局
 
     IFC 内敛元素格式化上下文
+
+### DOM事件
+    基本概念 DOM事件的级别
+        DOM0 element.onclick=function(){}
+
+        DOM2 element.addEventListener('click',function(){},false)
+
+        DOM3 element.addEventListener('keyup',function(){},false)
+    DOM事件模型
+        冒泡 
+        捕获
+    DOM事件流
+        事件通过捕获到达目标元素 目标元素再上传到window对象  捕获>目标阶段>冒泡
+    描述DOM事件捕获的基本流程
+        window>document>html>body>结构一层一层向下传
+    Event对象的常见应用
+        event.preventDefault() 阻止默认事件
+        event.stopPropagation() 阻止冒泡
+        event.stopImmediatePropagation() 一个按钮绑定了两个click事件1,2 我想通过优先级的方式 第一个响应函数是A 第二个响应函数是B 按照优先级的方式我想在A被点击的时候不要再执行B了 A的响应函数中加入此方法 会阻止B的执行
+        event.currentTarget 指的是绑定了事件监听的元素(可以理解为触发事件元素的父级元素)
+        event.target 当前被点击的元素(真正触发事件的那个元素)
+    自定义事件
+        var eve = new Event('custome');
+        ev.addEventListener('custome',function(){
+            console.log('custome');
+        })
+        ev.dispatchEvent(eve)
+
+        CustomEvent 
+        Event和CustomEvent都是用来做自定义事件的
+        区别: customEvent除了可以定义事件名后面还可以跟一个object来做指定参数
