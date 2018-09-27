@@ -182,3 +182,51 @@
     类与继承
         如何实现继承
         继承的几种方式
+
+### 通信
+    什么是同源策略及限制
+        同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源急性交互
+        这事一个用于隔离潜在恶意文件的关键的安全机制
+        源: 协议、域名、端口
+        限制:
+            Cookie、LocalStorage和IndexDB无法读取
+            DOM无法获得
+            AJAX请求不能发送
+    前后端如何通信
+        Ajax 同源下面的通信方式
+        WebSpcket 不限制同源策略 不受同源策略的限制
+        CORS 支持跨域通信 也支持同源通信
+    如何创建Ajax
+        XMLHttpRequest对象的工作流程
+        兼容性处理
+        事件的触发条件
+        事件的触发顺序
+    跨域通信的几种方式
+        JSONP
+            原理: 利用script标签的可以不同源加载实现的
+            如何实现
+                1.在window全局注册一个函数
+                2.给服务器传递这个函数的名字 同时可以有参数
+                3.服务器传递这个函数 内部填充有数据 就可以拿到数据
+                4.删除全局注册的那个函数
+        Hash
+            原理: 页面A通过iframe或frame嵌入了B窗口 目标是A给B发消息
+            实现:
+                1.拿到B的url地址
+                2.改变其hash值
+                3.在B中接收 onhashchange
+        postMessage
+        WebSocket
+            1.var ws = new WebSocket('wss://echo.websocket.org')
+            2.onopen,onmessage,onclose
+        CORS
+            浏览器会拦截ajax请求 如果他觉得这个ajax请求是跨域的 他会在http头中加一个origin 如果只是一个普通的ajax 则会被浏览器拦截
+            fetch('/some/url',{
+                method: 'get',
+                //加一些配置就可以实现跨域的通信 
+                //参考(http://www.ruanyifeng.com/blog/2016/04/cors.html)
+            }).then(function(response){
+
+            }).catch(function(err){
+
+            })
