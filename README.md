@@ -1,7 +1,11 @@
-### 三栏布局
+
+# 学习笔记
+
+## 三栏布局
+
     layout.html
     浮动解决方案
-        浮动会脱离文档流 需要清除浮动 处理周边关系 
+        浮动会脱离文档流 需要清除浮动 处理周边关系
         优点 兼容性好 快捷
         缺点 子元素也需要脱离文档流 可用性较差
     绝对定位解决方案
@@ -15,11 +19,12 @@
     网格布局解决方案
         缺点 内容超出高度 其本身高度不会变化  但是内容会超出
 
-### 盒模型
+## 盒模型
+
     box.html
     基本概念: 标准模型+IE模型
         标准模型: margin border padding content
-
+        IE模型: margin content(border+padding+content)
     标准模型和IE模型的区别
         标准模型: width=content宽度 height=content高度
         IE模型: width=border-left+padding-left+content+padding-right+border-right
@@ -32,8 +37,8 @@
         dom.currentStyle.width/height 得到渲染后的宽高(IE支持)
         window.getComputedStyle(dom).width/height 兼容Chrome和Firefox
         dom.getBoundingClientRect().width/height 计算元素的绝对位置 还可以获取top left
+---
     边距重叠
-
     BFC 边距重叠解决方案
         BFC的基本概念 块级格式化上下文
         BFC的原理(渲染规则)
@@ -52,10 +57,10 @@
             1.清除元素之间的影响
             2.清除内部浮动元素对父级元素的影响
             3.创建自适应布局
-
     IFC 内敛元素格式化上下文
 
-### DOM事件
+## DOM事件
+
     event.html
     基本概念 DOM事件的级别
         DOM0 element.onclick=function(){}
@@ -64,7 +69,7 @@
 
         DOM3 element.addEventListener('keyup',function(){},false)
     DOM事件模型
-        冒泡 
+        冒泡
         捕获
     DOM事件流
         事件通过捕获到达目标元素 目标元素再上传到window对象  捕获>目标阶段>冒泡
@@ -83,19 +88,19 @@
         })
         ev.dispatchEvent(eve)
 
-        CustomEvent 
+        CustomEvent
         Event和CustomEvent都是用来做自定义事件的
         区别: customEvent除了可以定义事件名后面还可以跟一个object来做指定参数
 
-### HTTP协议
+## HTTP协议
+
     HTTP协议的主要特点
         简单快速
         灵活
         无连接
         无状态
     HTTP报文的组成部分
-        请求报文-> 请求行(http方法、页面地址、http协议、版本) 请求头(key和value值来告诉客户端我要哪些内容要注意什么类型) 空行(告诉服务端往下发送的下一个不是请求头部分了下一个是请求体了) 请求体
-        
+        请求报文-> 请求行(http方法、页面地址、http协议、版本)、 请求头(key和value值来告诉客户端我要哪些内容要注意什么类型)、 空行(告诉服务端往下发送的下一个不是请求头部分了下一个是请求体了)、 请求体
         相应报文-> 状态行 响应头 空行 响应体
     HTTP方法
         GET 获取资源
@@ -146,7 +151,8 @@
         HTTP/1.1 要求服务器端支持管线化 但并不要求服务器端也对响应进行管线化处理 只是要求对于管线化的请求不失败即可
         由于上面提到的服务器端问题 开启管线化很可能并不会带来大幅度的性能提升 而且很多服务器端和代理程序对管线化的支持并不好 因此现代浏览器如Chrome和Firefox默认并未开启管线化支持
 
-### 原型链
+## 原型链
+
     proto.html
     创建对象有几种方法
         1. var o1 = {name: 'o1'}
@@ -154,7 +160,7 @@
         2. var M = function(){this.name='o2'}
            var o2 = new M()
         3. var P = {name:'o3'}
-           var o3=Object.create(p) 
+           var o3=Object.create(p)
     原型 构造函数 实例 原型链
         只要是对象就是一个实例
         任何一个函数只要被new使用了 就是一个构造函数
@@ -162,10 +168,9 @@
         构造函数通过new和实例进行关联
         实例通过__proto__与原型对象进行关联
 
-        原型链: 在使用New方法初始化函数的时候得到的新对象的__proto__属性会指向函数对象的原型对象，而函数对象的原型对象又继承至原始对象 
+        原型链: 在使用New方法初始化函数的时候得到的新对象的__proto__属性会指向函数对象的原型对象，而函数对象的原型对象又继承至原始对象
         把这个有__proto__串起来的直到Object.prototype.__proto__为null的链叫做原型链。原型链实际上就是js中数据继承的继承链。
-
-
+---
     instanceof的原理
         instanceof用来判断实例是否属于某个对象
         实例对象内部---->构造函数原型链---->实例对象父对象的原型链
@@ -174,7 +179,8 @@
         2.构造函数foo被执行 执行的时候 相应的传参会被传入 同时上下文(this)会被指定为这个新实例 new foo等同于 new foo() 只能用在不传递任何参数的情况
         3.如果构造函数返回了一个‘对象’ 那么这个对象会取代整个new出来的结果 如果构造函数没有返回对象 那么new出来的结果为步骤1创建的对象
 
-### 面向对象
+## 面向对象
+
     oop.html
     类与实例
         类的声明
@@ -183,7 +189,8 @@
         如何实现继承
         继承的几种方式
 
-### 通信
+## 通信
+
     什么是同源策略及限制
         同源策略限制从一个源加载的文档或脚本如何与来自另一个源的资源急性交互
         这事一个用于隔离潜在恶意文件的关键的安全机制
@@ -201,6 +208,7 @@
         兼容性处理
         事件的触发条件
         事件的触发顺序
+---
     跨域通信的几种方式
         JSONP
             原理: 利用script标签的可以不同源加载实现的
@@ -221,12 +229,39 @@
             2.onopen,onmessage,onclose
         CORS
             浏览器会拦截ajax请求 如果他觉得这个ajax请求是跨域的 他会在http头中加一个origin 如果只是一个普通的ajax 则会被浏览器拦截
-            fetch('/some/url',{
-                method: 'get',
-                //加一些配置就可以实现跨域的通信 
-                //参考(http://www.ruanyifeng.com/blog/2016/04/cors.html)
-            }).then(function(response){
 
-            }).catch(function(err){
+```javascript
+fetch('/some/url',{
+    method: 'get',
+    //加一些配置就可以实现跨域的通信
+    //参考(http://www.ruanyifeng.com/blog/2016/04/cors.html)
+    }).then(function(response){
 
-            })
+    }).catch(function(err){
+
+    })
+```
+
+## 安全
+
+    CSRF (cross-site request forgery)跨站请求伪造
+        攻击原理:
+![CSRF攻击原理](https://pic002.cnblogs.com/img/hyddd/200904/2009040916453171.jpg)
+
+        防御措施
+            Token验证: 访问网站时 会主动上传cookie 但是不会主动上传token 如果访问接口时 没有带token 则不予通过验证
+            Referer验证: 页面来源验证 如果来自于自己站点 则通过 否则不予通过
+            隐藏令牌: 隐藏在httphead头中 类似于token 只是使用方式的区别
+---
+    XSS (cross-site scripting)跨域脚本攻击
+        攻击原理
+            攻击者对含有漏洞的服务器发起XSS攻击(注入JS代码)
+            诱使受害者打开受到攻击的服务器URL
+            受害者在Web浏览器中打开URL，恶意脚本执行
+        攻击方式
+            1.反射型: 发出请求时, XSS代码出现在URL中 作为提交到服务器端 服务器解析后响应 XSS随相应内容一起返回给浏览器 最后浏览器解析执行XSS代码 这个过程就像一次发射 所以交反射型XSS
+            2.存储型: 存储型XSS和反射型的XSS区别在于 存储型的XSS提交的代码会存储在服务器端(数据库、内存、文件系统等) 下次请求目标页面时不用再提交XSS代码
+        防御措施
+            1.编码: 对用户输入的数据进行HTML Entity编码
+            2.过滤: 移除用户上传的DOM属性 如onerror等 移除用户上传的style节点 script节点 iframe节点等
+            3.校正: 避免直接对HTML Entity编码 使用DOM Prase转换 校正不匹配的DOM标签
