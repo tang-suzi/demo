@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择排序</title>
+</head>
+<body>
+    <script>
+        var selectionSort = function (arr) {
+            var len = arr.length;
+            var minIndex, temp;
+            console.time('选择排序耗时')
+            for (var i = 0; i< len - 1; i++) {
+                minIndex = i;
+                for(var j = i + 1; j < len; j++){
+                    if (arr[j]<arr[minIndex]) {       // 寻找最小的数
+                        minIndex = j;                 // 将最小数的索引保存
+                    }
+                }
+                temp = arr[i];
+                arr[i] = arr[minIndex];
+                arr[minIndex] = temp;
+            }
+            console.timeEnd('选择排序耗时')
+            return arr;
+        }
+        var arr = [9,3,2,5,7,1,8]
+        console.log(selectionSort(arr))
+    </script>
+</body>
+</html>
