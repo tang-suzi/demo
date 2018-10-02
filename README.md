@@ -365,3 +365,19 @@ fetch('/some/url',{
             <meat http-equiv="x-dns-prefetch-control" content="on">
             <link rel="dns-prefetch" href="//host_name_to_prefetch.com">
     错误监控
+        错误的分类
+            即使运行错误: 代码错误
+                1.try...catch
+                2.window.onerror
+            资源加载错误
+            error.html
+                1.object.onerror
+                2.performance.getEntries()
+                3.Error事件捕获
+            跨域的js运行错误可以捕获 错误提示是script error
+                处理方法
+                    1.在script标签增加crossorigin属性
+                    2.设置js资源相应头维Access-Control-Allow-Origin:*
+        上报错误的基本原理
+            1.使用Ajax通信的方式上报
+            2.利用Image对象上报
