@@ -327,3 +327,19 @@ fetch('/some/url',{
                 DOM改动
                 CSS改动
         布局Layout
+
+## js运行机制
+
+        process.html
+[JavaScript 异步、栈、事件循环、任务队列](https://segmentfault.com/a/1190000011198232)
+
+        如何理解JS的单线程
+            浏览器只分配给js一个主线程，用来执行任务（函数），但一次只能执行一个任务，这些任务形成一个任务队列排队等候执行
+        什么是任务队列
+        什么是event loop
+[Event Loop](https://www.imooc.com/article/40020)
+
+        什么时候开启异步任务
+            setTimeout和setInterval
+            DOM事件
+            ES6中的Promise
