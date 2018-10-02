@@ -330,16 +330,38 @@ fetch('/some/url',{
 
 ## js运行机制
 
-        process.html
+    process.html
 [JavaScript 异步、栈、事件循环、任务队列](https://segmentfault.com/a/1190000011198232)
 
-        如何理解JS的单线程
-            浏览器只分配给js一个主线程，用来执行任务（函数），但一次只能执行一个任务，这些任务形成一个任务队列排队等候执行
-        什么是任务队列
-        什么是event loop
+    如何理解JS的单线程
+        浏览器只分配给js一个主线程，用来执行任务（函数），但一次只能执行一个任务，这些任务形成一个任务队列排队等候执行
+    什么是任务队列
+    什么是event loop
 [Event Loop](https://www.imooc.com/article/40020)
 
-        什么时候开启异步任务
-            setTimeout和setInterval
-            DOM事件
-            ES6中的Promise
+    什么时候开启异步任务
+        setTimeout和setInterval
+        DOM事件
+        ES6中的Promise
+
+## 页面性能
+
+    提升页面性能的方法
+        1.资源压缩合并 减少HTTP请求
+        2.非核心代码异步加载->异步加载方式->异步加载的区别
+            1.异步加载的方式
+                perfomance.html
+                动态脚本加载
+                defer
+                async
+            2.异步加载的区别
+                defer是在HTML解析完之后才会执行 如果是多个 按照加载的顺序依次执行
+                async是在加载完之后立即执行 如果是多个 执行顺序和加载顺序无关
+        3.运动浏览器缓存->缓存的分类->缓存的原理
+            1.强缓存
+            2.协商缓存
+        4.使用CDN
+        5.预解析DNS
+            <meat http-equiv="x-dns-prefetch-control" content="on">
+            <link rel="dns-prefetch" href="//host_name_to_prefetch.com">
+    错误监控
